@@ -15,7 +15,7 @@ description = "A high-level Python Web framework that encourages rapid developme
 name = "django"
 optional = false
 python-versions = ">=3.6"
-version = "3.1"
+version = "3.1.1"
 
 [package.dependencies]
 asgiref = ">=3.2.10,<3.3.0"
@@ -47,11 +47,31 @@ django = ">=1.11"
 
 [[package]]
 category = "main"
+description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
+name = "djangorestframework-simplejwt"
+optional = false
+python-versions = ">=3.6,<3.9"
+version = "4.4.0"
+
+[package.dependencies]
+django = "*"
+djangorestframework = "*"
+pyjwt = "*"
+
+[package.extras]
+dev = ["bumpversion (>=0.5.3,<1)", "pytest-watch", "wheel", "twine", "ipython", "cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox", "flake8", "pep8", "isort", "Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)", "python-jose (3.0.0)"]
+doc = ["Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)"]
+lint = ["flake8", "pep8", "isort"]
+python-jose = ["python-jose (3.0.0)"]
+test = ["cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox"]
+
+[[package]]
+category = "main"
 description = "REST version of Django authentication system."
 name = "djoser"
 optional = false
 python-versions = "*"
-version = "2.0.3"
+version = "2.0.5"
 
 [package.dependencies]
 django-templated-mail = "*"
@@ -74,6 +94,19 @@ version = "2.8.5"
 
 [[package]]
 category = "main"
+description = "JSON Web Token implementation in Python"
+name = "pyjwt"
+optional = false
+python-versions = "*"
+version = "1.7.1"
+
+[package.extras]
+crypto = ["cryptography (>=1.4)"]
+flake8 = ["flake8", "flake8-import-order", "pep8-naming"]
+test = ["pytest (>=4.0.1,<5.0.0)", "pytest-cov (>=2.6.0,<3.0.0)", "pytest-runner (>=4.2,<5.0.0)"]
+
+[[package]]
+category = "main"
 description = "World timezone definitions, modern and historical"
 name = "pytz"
 optional = false
@@ -89,8 +122,8 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "0.3.1"
 
 [metadata]
-content-hash = "ad6813f079083232018e846911d8b81b3dea50d596dc4e703c8636e6c13348e8"
-python-versions = "^3.8"
+content-hash = "783f3d0ae69ed6f4b17011d153e095c4426c520c37927580436b231d270e609d"
+python-versions = "3.8.3"
 
 [metadata.files]
 asgiref = [
@@ -98,8 +131,8 @@ asgiref = [
     {file = "asgiref-3.2.10.tar.gz", hash = "sha256:7e51911ee147dd685c3c8b805c0ad0cb58d360987b56953878f8c06d2d1c6f1a"},
 ]
 django = [
-    {file = "Django-3.1-py3-none-any.whl", hash = "sha256:1a63f5bb6ff4d7c42f62a519edc2adbb37f9b78068a5a862beff858b68e3dc8b"},
-    {file = "Django-3.1.tar.gz", hash = "sha256:2d390268a13c655c97e0e2ede9d117007996db692c1bb93eabebd4fb7ea7012b"},
+    {file = "Django-3.1.1-py3-none-any.whl", hash = "sha256:b5fbb818e751f660fa2d576d9f40c34a4c615c8b48dd383f5216e609f383371f"},
+    {file = "Django-3.1.1.tar.gz", hash = "sha256:59c8125ca873ed3bdae9c12b146fbbd6ed8d0f743e4cf5f5817af50c51f1fc2f"},
 ]
 django-templated-mail = [
     {file = "django-templated-mail-1.1.1.tar.gz", hash = "sha256:8db807effebb42a532622e2d142dfd453dafcd0d7794c4c3332acb90656315f9"},
@@ -109,9 +142,13 @@ djangorestframework = [
     {file = "djangorestframework-3.11.1-py3-none-any.whl", hash = "sha256:8b1ac62c581dbc5799b03e535854b92fc4053ecfe74bad3f9c05782063d4196b"},
     {file = "djangorestframework-3.11.1.tar.gz", hash = "sha256:6dd02d5a4bd2516fb93f80360673bf540c3b6641fec8766b1da2870a5aa00b32"},
 ]
+djangorestframework-simplejwt = [
+    {file = "djangorestframework_simplejwt-4.4.0-py3-none-any.whl", hash = "sha256:288ee78618d906f26abf6282b639b8f1806ce1d9a7578897a125cf79c609f259"},
+    {file = "djangorestframework_simplejwt-4.4.0.tar.gz", hash = "sha256:c315be70aa12a5f5790c0ab9acd426c3a58eebea65a77d0893248c5144a5080c"},
+]
 djoser = [
-    {file = "djoser-2.0.3-py3-none-any.whl", hash = "sha256:e08570cc691caab6bf708e884b98fe3aeda61d5f84eca2d5781dfd9601ee04cf"},
-    {file = "djoser-2.0.3.tar.gz", hash = "sha256:36e06fdfc429a3aa8647289ee0e50806114d89f781de9245a68c6a44575d1bdd"},
+    {file = "djoser-2.0.5-py3-none-any.whl", hash = "sha256:5cd98687cdb6d87af632c45fe6268e09c0774b3ba89db02038727ca6e711c64d"},
+    {file = "djoser-2.0.5.tar.gz", hash = "sha256:6b5f225122d30f3f84a46032d8f98a03412903b225d418d373463275ee1d5c39"},
 ]
 pillow = [
     {file = "Pillow-7.2.0-cp35-cp35m-macosx_10_10_intel.whl", hash = "sha256:1ca594126d3c4def54babee699c055a913efb01e106c309fa6b04405d474d5ae"},
@@ -155,6 +192,10 @@ psycopg2 = [
     {file = "psycopg2-2.8.5-cp38-cp38-win32.whl", hash = "sha256:2327bf42c1744a434ed8ed0bbaa9168cac7ee5a22a9001f6fc85c33b8a4a14b7"},
     {file = "psycopg2-2.8.5-cp38-cp38-win_amd64.whl", hash = "sha256:132efc7ee46a763e68a815f4d26223d9c679953cd190f1f218187cb60decf535"},
     {file = "psycopg2-2.8.5.tar.gz", hash = "sha256:f7d46240f7a1ae1dd95aab38bd74f7428d46531f69219954266d669da60c0818"},
+]
+pyjwt = [
+    {file = "PyJWT-1.7.1-py2.py3-none-any.whl", hash = "sha256:5c6eca3c2940464d106b99ba83b00c6add741c9becaec087fb7ccdefea71350e"},
+    {file = "PyJWT-1.7.1.tar.gz", hash = "sha256:8d59a976fb773f3e6a39c85636357c4f0e242707394cadadd9814f5cbaa20e96"},
 ]
 pytz = [
     {file = "pytz-2020.1-py2.py3-none-any.whl", hash = "sha256:a494d53b6d39c3c6e44c3bec237336e14305e4f29bbf800b599253057fbb79ed"},
