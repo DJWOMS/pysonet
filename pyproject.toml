@@ -11,7 +11,9 @@ djangorestframework = "^3.11.1"
 pillow = "^7.2.0"
 psycopg2 = "^2.8.5"
 djoser = "^2.0.3"
-djangorestframework-simplejwt = "^4.4.0"
+djangorestframework-simplejwt = "*"
+drf-yasg = "^1.17.1"
+django-cors-headers = "^3.5.0"
 
 [tool.poetry.dev-dependencies]
 
