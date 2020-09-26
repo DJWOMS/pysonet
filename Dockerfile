@@ -17,12 +17,13 @@ COPY ./pyproject.toml ./poetry.lock* /usr/src/app/
 
 RUN poetry install
 
-COPY ./entrypoint.sh .
+#COPY ./entrypoint.sh /usr/src/app/
 
-COPY . .
+COPY . /usr/src/app/
 
-#ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
-
+RUN chmod 755 /usr/src/app/prestart.sh
+#CMD /usr/src/app/prestart.sh
+#ENTRYPOINT sh /usr/src/app/entrypoint.sh
 
 
 

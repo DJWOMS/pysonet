@@ -5,7 +5,7 @@ description = "Social network by Django"
 authors = ["DJWOMS <socanime@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "3.8.3"
+python = "^3.8"
 django = "^3.1"
 djangorestframework = "^3.11.1"
 pillow = "^7.2.0"
