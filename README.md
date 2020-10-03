@@ -64,7 +64,7 @@
 
     docker-compose build
 
-##### 4) Запустить контейнер
+##### 5) Запустить контейнер
 
     docker-compose up
     
