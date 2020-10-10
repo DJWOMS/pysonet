@@ -25,3 +25,11 @@ class AddFollowerView(views.APIView):
             Follower.objects.create(subscriber=request.user, user=user)
             return response.Response(status=201)
         return response.Response(status=404)
+
+    def delete(self, request, pk):
+        try:
+            sub = Follower.objects.get(subscriber=request.user, user_id=pk)
+        except Follower.DoesNotExist:
+            return response.Response(status=404)
+        sub.delete()
+        return response.Response(status=204)
