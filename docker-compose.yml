@@ -16,6 +16,8 @@ services:
       - pysonet_postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env.dev
+    ports:
+      - 5432:5432
 
 volumes:
   pysonet_postgres_data:
