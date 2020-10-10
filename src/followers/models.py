@@ -9,5 +9,5 @@ class Follower(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='owner'
     )
     subscriber = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='followers'
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='subscribers'
     )
