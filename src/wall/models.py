@@ -14,7 +14,9 @@ class Post(models.Model):
     published = models.BooleanField(default=True)
     moderation = models.BooleanField(default=True)
     view_count = models.PositiveIntegerField(default=0)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='posts'
+    )
 
     def __str__(self):
         return f'Post by {self.user}'
