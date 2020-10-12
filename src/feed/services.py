@@ -1,3 +1,4 @@
+from src.followers.models import Follower
 from src.profiles.models import UserNet
 from src.wall.models import Post
 
@@ -17,5 +18,13 @@ def feed(user):
     news = Post.objects.filter(
         user__in=UserNet.objects.filter(owner__subscriber=user)
     ).order_by('-create_date')
-    print(news.count())
+    print(news.query)
+    print(news)
+
+    # Альтернативный вариант через модель Follow и Values
+
+    news = Post.objects.filter(
+        user__in=Follower.objects.values('user').filter(subscriber=user)
+    ).order_by('-create_date')
+    print(news.query)
     print(news)
