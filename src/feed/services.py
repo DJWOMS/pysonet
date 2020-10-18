@@ -5,12 +5,9 @@ from src.wall.models import Post
 
 def feed(user):
     # NEW
-    # Прямая связь между моделями Follower и Post отсутствует
-    # связь организеум через модель User.
-    # Возможно User надо поменять на твою модель UserNet или settings.AUTH_USER_MODEL
-    # Ниже все 3 варианта =)
+
     # Тестов не делал, т.к. не смог развернуть проект на своей машине =(
-    # Может быть расскажешь на стриме как развернуть данный проект?
+    # Может быть расскажешь на стриме как развернуть проект?
     # с Django и Python только знакомлюсь... сорян если что=)
 
     # UPD: Запустил и протестил.
@@ -25,6 +22,14 @@ def feed(user):
 
     news = Post.objects.filter(
         user__in=Follower.objects.values('user').filter(subscriber=user)
+    ).order_by('-create_date')
+    print(news.query)
+    print(news)
+
+    # Вариант с related_name
+
+    news = Post.objects.filter(
+        user__owner__subscriber=user
     ).order_by('-create_date')
     print(news.query)
     print(news)
