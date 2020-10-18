@@ -4,11 +4,5 @@ from src.wall.models import Post
 
 def feed(user):
     # 1
-    news = []
-    subscribe = Follower.objects.filter(subscriber=user).values()
-    for sub in subscribe:
-        news.append(Post.objects.filter(user=sub.user, create_date__hour=1).order_by('-create_date'))
-
-    # 2
-    Post.objects.filter(user__id__in=subscribe, create_date__hour=1).order_by('-create_date')
-    user.post.fiter(user__in=subscribe)
+    posts = Post.objects.filter(user__owner__subscriber_id=1).order_by('-create_date')\
+        .select_related('user').prefetch_related('comments')
