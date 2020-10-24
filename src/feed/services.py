@@ -1,14 +1,16 @@
-from src.followers.models import Follower
+from django.conf import settings
 from src.wall.models import Post
 
 
-def feed(user):
-    # 1
-    news = []
-    subscribe = Follower.objects.filter(subscriber=user).values()
-    for sub in subscribe:
-        news.append(Post.objects.filter(user=sub.user, create_date__hour=1).order_by('-create_date'))
+class Feed:
+    """ Service feeds
+    """
+    def get_post_list(self, user: settings.AUTH_USER_MODEL):
+        return Post.objects.filter(user__owner__subscriber=user).order_by('-create_date')\
+            .select_related('user').prefetch_related('comments')
 
-    # 2
-    Post.objects.filter(user__id__in=subscribe, create_date__hour=1).order_by('-create_date')
-    user.post.fiter(user__in=subscribe)
+    def get_single_post(self, pk: int):
+        return Post.objects.select_related('user').prefetch_related('comments').get(id=pk)
+
+
+feed_service = Feed()
