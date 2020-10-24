@@ -11,7 +11,7 @@ db.sqlite3
 
 venv
 
-
+.env.dev
 prod_settings.py
 local_settings.py
 
