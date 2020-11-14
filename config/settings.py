@@ -13,12 +13,12 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3&^bk_$!u#(ft$ka9z6+&*miqi8v#mydv$wdb$(c317a2ye-fo'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.environ.get("DEBUG", default=1)))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -177,10 +177,12 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:8080",
     "http://localhost:8081",
     "http://127.0.0.1:8000",
-    "http://127.0.0.1:1313",
+    "http://127.0.0.1:4200",
     "http://localhost:1313",
+    "http://localhost:4200",
 ]
 
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", None)
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", None)
 EMAIL_HOST = os.environ.get("EMAIL_HOST", None)
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", None)

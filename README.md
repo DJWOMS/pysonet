@@ -1,9 +1,3 @@
-<p align="center">
-    <a href="https://djangochannel.com" target="_blank" rel="noopener noreferrer">
-        <img width="100" src="logo.png" title="djangoschool">
-    </a>
-</p>
-
 <h2 align="center">PySoNet by Django</h2>
 
 Социальная сеть на Django Rest Framework.
@@ -49,17 +43,24 @@
     SECRET_KEY=fdsadqw3f32wg<43g3hv$%#@%F$F$$F$F
     DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
     
+    # Data Base
     POSTGRES_DB=pysonet
-    
     POSTGRES_ENGINE=django.db.backends.postgresql
     POSTGRES_DATABASE=pysonet
     POSTGRES_USER=pysonet_user
     POSTGRES_PASSWORD=pysonet_pass
     POSTGRES_HOST=pysonet-db
     POSTGRES_PORT=5432
-    
     DATABASE=postgres
 
+    # Email
+    DEFAULT_FROM_EMAIL=your@your.com
+    EMAIL_USE_TLS=True
+    EMAIL_HOST=your_smtp
+    EMAIL_HOST_USER=your@your.com
+    EMAIL_HOST_PASSWORD=pass
+    EMAIL_PORT=587
+    
 ##### 4) Создать образ
 
     docker-compose build
