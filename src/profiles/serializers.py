@@ -5,18 +5,23 @@ from .models import UserNet
 class GetUserNetSerializer(serializers.ModelSerializer):
     """ Вывод инфо о user
     """
-    avatar = serializers.ImageField(read_only=True)
+    # avatar = serializers.ImageField(read_only=True)
 
     class Meta:
         model = UserNet
         exclude = (
+            "id",
             "password",
+            "avatar",
+            "email",
             "last_login",
             "is_active",
             "is_staff",
             "is_superuser",
             "groups",
-            "user_permissions"
+            "user_permissions",
+            "date_joined",
+            "first_login"
         )
 
 
