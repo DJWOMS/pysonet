@@ -1,5 +1,9 @@
+import os
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 
 class UserNet(AbstractUser):
@@ -18,6 +22,24 @@ class UserNet(AbstractUser):
     birthday = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=6, choices=GENDER, default='male')
     technology = models.ManyToManyField('Technology', related_name='users')
+
+
+@receiver(pre_save, sender=UserNet)
+def post_update(sender, instance, **kwargs):
+    """
+    Удаление старого аватара после обновления
+    """
+    if not instance.pk:
+        return False
+
+    if sender.objects.get(pk=instance.pk).avatar:
+        old_avatar = sender.objects.get(pk=instance.pk).avatar
+        new_avatar = instance.avatar
+        if not old_avatar == new_avatar:
+            if os.path.isfile(old_avatar.path):
+                os.remove(old_avatar.path)
+    else:
+        return False
 
 
 class Technology(models.Model):
