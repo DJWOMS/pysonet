@@ -12,7 +12,7 @@ class GetUserNetSerializer(serializers.ModelSerializer):
         exclude = (
             "id",
             "password",
-            "avatar",
+            # "avatar",
             "email",
             "last_login",
             "is_active",
@@ -23,6 +23,14 @@ class GetUserNetSerializer(serializers.ModelSerializer):
             "date_joined",
             "first_login"
         )
+
+
+class GetUserNetAvatarSerializer(serializers.ModelSerializer):
+    """ Вывод аватара пользователя
+    """
+    class Meta:
+        model = UserNet
+        fields = ("avatar",)
 
 
 class GetUserNetPublicSerializer(serializers.ModelSerializer):
