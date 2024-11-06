@@ -3,11 +3,9 @@
 Социальная сеть на Django Rest Framework.
 
 **Ссылки**:
-- [Сайт](https://djangochannel.com)
 - [YouTube](https://www.youtube.com/playlist?list=PLF-NY6ldwAWqSxUpnTBObEP21cFQxNJ7C)
 - [Telegram](https://t.me/trueDjangoChannel)
 - [Группа в VK](https://vk.com/djangochannel)
-- [Поддержать проект](https://donatepay.ru/don/186076)
 ### Инструменты разработки
 
 **Стек:**
